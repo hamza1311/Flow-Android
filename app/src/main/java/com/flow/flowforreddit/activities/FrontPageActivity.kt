@@ -38,6 +38,15 @@ class FrontPageActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
         toggle.syncState()
 
         nav_view.setNavigationItemSelectedListener(this)
+
+        login()
+    }
+
+    private fun login() {
+        val users = ArrayList(TreeMap(App().getTokenStore()!!.data()).keys)
+        if (users.contains(getLastLoggedInUser()) && !isUserless && !isLoggedOut()) {
+            ReauthenticationTask(WeakReference(this)).execute(getLastLoggedInUser())
+        }
     }
 
     override fun onBackPressed() {
@@ -101,10 +110,6 @@ class FrontPageActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
 
     override fun onStart() {
         super.onStart()
-        val users = ArrayList(TreeMap(App().getTokenStore()!!.data()).keys)
-        if (users.contains(getLastLoggedInUser()) && !isUserless && !isLoggedOut()) {
-            ReauthenticationTask(WeakReference(this)).execute(getLastLoggedInUser())
-        }
     }
 
     private fun getLastLoggedInUser(): String? = prefs.getString(LAST_LOGGED_IN, "")
