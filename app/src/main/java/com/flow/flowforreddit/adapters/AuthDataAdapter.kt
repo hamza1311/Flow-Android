@@ -64,16 +64,15 @@ class AuthDataAdapter(
             usernameView = itemView.listUsers_username
             usernameView.text = username
         }
-
     }
 }
 
 class ReauthenticationTask internal constructor(private val activity: WeakReference<LoginActivity>) :
     AsyncTask<String, Void, Void>() {
-//    var username = ""
+
     override fun doInBackground(vararg usernames: String): Void? {
         App().getAccountHelper().switchToUser(usernames[0])
-//        username = usernames[0]
+
         Log.d("UsernameSS", "SSSS-UN ${usernames[0]}")
         saveLastLoggedInUser(activity = activity.get(), username = usernames[0])
         return null

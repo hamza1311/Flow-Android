@@ -6,30 +6,38 @@
     android:layout_height="match_parent"
     tools:context=".fragments.FrontPageFragment">
 
+    <Spinner
+        android:id="@+id/frontPageFragment_sort_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:layout_marginBottom="3dp"
+        android:padding="5dp" />
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/frontPageFragment_recyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="382dp"
+        android:layout_height="485dp"
+        android:layout_below="@+id/frontPageFragment_sort_spinner"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="3dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_marginBottom="8dp">
 
     </android.support.v7.widget.RecyclerView>
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/floatingActionButton"
+        android:id="@+id/frontPageFragment_fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:clickable="true"
-        android:focusable="true"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
         android:layout_marginEnd="28dp"
         android:layout_marginBottom="25dp"
+        android:clickable="true"
+        android:focusable="true"
         android:src="@android:drawable/ic_menu_add" />
 </RelativeLayout>
